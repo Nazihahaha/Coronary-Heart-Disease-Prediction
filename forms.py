@@ -18,17 +18,9 @@ class InputeForm(FlaskForm):
         choices= X_data.source.unique().tolist(),
         validators = [DataRequired()]
     )
-    destination = SelectField(
-        label = "Destination",
-        choices= X_data.destination.unique().tolist(),
-        validators = [DataRequired()]
-    )
+    
     dep_time = TimeField(
         label="Departure Time",
-        validators=[DataRequired()]
-    )
-    arrival_time = TimeField(
-        label="Arrival Time",
         validators=[DataRequired()]
     )
     duration=IntegerField(

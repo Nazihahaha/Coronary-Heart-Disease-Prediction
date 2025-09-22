@@ -3,21 +3,20 @@
 
 {% block content %}
 <!--whatever is written here will be shown in the home page-->
-
-<div>
-    <h3>This is a coronary heart disease prediction model based on machine learning</h3>
-    <!--<a href=" {{url_for('predict')}}"> Click Here! </a></p> -->
-</div>
 <style type="text/css">
     body {
     background-image: url("{{ url_for('static', filename='img/heartbg.png') }}");
     background-size: cover;    /* Stretch width, keep aspect ratio */
     background-position: center -110px; /* Moves the background up */
-
-    
 }
-
-    
+    h3{
+        text-align: center;
+    }
 
 </style>
+<div>
+    <h3>This is a coronary heart disease prediction model based on machine learning</h3>
+    <!--<a href=" {{url_for('predict')}}"> Click Here! </a></p> -->
+</div>
+
 {% endblock content %}

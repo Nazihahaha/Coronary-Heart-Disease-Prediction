@@ -1,6 +1,7 @@
 from flask import (Flask,  url_for, render_template)
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "secret_key"
 
 @app.route("/")
 @app.route("/home")

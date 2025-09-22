@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Disease Prediction</title>
-</head>
+{% extends "layout.html"%}
+<!--curly braces mean jinja code, inheriting layout.html-->
+
+{% block content %}
+<!--whatever is written here will be shown in the home page-->
+
+<div>
+    <h3>This is a coronary heart disease prediction model based on machine learning</h3>
+    <!--<a href=" {{url_for('predict')}}"> Click Here! </a></p> -->
+</div>
 <style type="text/css">
     body {
     background-image: url("{{ url_for('static', filename='img/heartbg.png') }}");
@@ -17,8 +20,4 @@
     
 
 </style>
-<body>
-    <h1>Welcome to Home page!</h1>
-    
-</body>
-</html>
+{% endblock content %}

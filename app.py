@@ -1,7 +1,7 @@
 import pandas as pd
 import joblib
 from flask import (Flask,  url_for, render_template)
-from forms import InputeForm
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret_key"

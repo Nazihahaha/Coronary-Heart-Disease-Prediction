@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired
 X_data = pd.read_csv("framingham.csv")
 
 
-class InputeForm(FlaskForm):
+'''class InputeForm(FlaskForm):
     airline = SelectField(label="Airline",
                           choices = X_data.airline.unique().tolist(),
                           validators = [DataRequired()]

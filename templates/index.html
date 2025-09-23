@@ -19,4 +19,101 @@
     <!--<a href=" {{url_for('predict')}}"> Click Here! </a></p> -->
 </div>
 
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.gender.label }}
+        {{ form.gender }}
+        {% if form.gender.errors %}
+            {% for error in form.gender.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{ form.age.label }}
+        {{ form.age }}
+        {% if form.age.errors %}
+            {% for error in form.age.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.currentSmoker.label }}
+        {{ form.currentSmoker() }}
+        {% if form.currentSmoker.errors %}
+            {% for error in form.currentSmoker.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.cigsPerDay.label }}
+        {{ form.cigsPerDay }}
+        {% if form.cigsPerDay.errors %}
+            {% for error in form.cigsPerDay.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.diabetes.label }}
+        {{ form.diabetes }}
+        {% if form.diabetes.errors %}
+            {% for error in form.diabetes.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.totChol.label }}
+        {{ form.totChol }}
+        {% if form.totChol.errors %}
+            {% for error in form.totChol.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.sysBP.label }}
+        {{ form.sysBP }}
+        {% if form.sysBP.errors %}
+            {% for error in form.sysBP.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.BMI.label }}
+        {{ form.BMI }}
+        {% if form.BMI.errors %}
+            {% for error in form.BMI.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.heartRate.label }}
+        {{ form.heartRate }}
+        {% if form.heartRate.errors %}
+            {% for error in form.heartRate.errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>{{ form.submit() }}</div>
+    
+</form>
+
 {% endblock content %}

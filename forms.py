@@ -1,40 +1,30 @@
 from flask_wtf import FlaskForm
 import pandas as pd
-from wtforms import (SelectField, DateField, TimeField, IntegerField, SubmitField)
-from wtforms.validators import DataRequired
+from wtforms import (SelectField, DateField, TimeField, FloatField, IntegerField, SubmitField, BooleanField, validators)
+from wtforms.validators import (DataRequired, Length, Email, Optional, EqualTo)
+
 
 
 X_data = pd.read_csv("framingham.csv")
 
 
-'''class InputeForm(FlaskForm):
-    airline = SelectField(label="Airline",
-                          choices = X_data.airline.unique().tolist(),
-                          validators = [DataRequired()]
-                          )
+class InputeForm(FlaskForm):
+    gender = SelectField(label="Gender", choices=["Male", "Female", "Other"], validators=[Optional()])
+
+    age = IntegerField(label='Age')
+
+    currentSmoker = BooleanField('Are you a current Smoker?', validators=[validators.InputRequired()])
+
+    cigsPerDay = IntegerField(label='Amount of cigarettes you smoke per day')
+
+    diabetes = FloatField(label='How much is your diabetes?')
+
+    totChol = FloatField(label='How much is your total Cholesterol?')
+
+    sysBP = FloatField(label='How much is your systolic Blood Pressure (Upper value)?')
+
+    BMI = FloatField(label='What is your Body Mass Index (BMI)?')
+
+    heartRate = FloatField(label='What is your heart rate?')
     
-    source = SelectField(
-        label = "Source",
-        choices= X_data.source.unique().tolist(),
-        validators = [DataRequired()]
-    )
-    
-    dep_time = TimeField(
-        label="Departure Time",
-        validators=[DataRequired()]
-    )
-    duration=IntegerField(
-        label="Duration",
-        validators=[DataRequired()]
-    )
-    total_stops=IntegerField(
-        label="Total Stops",
-        validators=[DataRequired()]
-    )
-    additional_info = SelectField(
-        label="Additional Info",
-        choices=X_data.additional_info.unique().tolist(),
-        validators=[DataRequired()]
-    )
     submit = SubmitField("Predict")
-'''

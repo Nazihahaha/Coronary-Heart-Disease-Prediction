@@ -10,40 +10,47 @@
     }
 
     .container {
-        display: flex; /* This will help with alignment */
-        justify-content: flex-end; /* Pushes the content to the right */
-        align-items: center; /* Vertically centers the form block */
-        height: 100vh; /* Takes full viewport height */
-        padding-right: 150px; /* Adds some space from the right edge */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-top: 0px; 
+        height: 85vh;
+        padding-right: 150px;
     }
 
     .form-block {
-        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-        border-radius: 15px; /* Rounded corners */
-        padding: 25px; /* Spacing inside the block */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
-        width: 350px; /* Fixed width for the form block */
-        box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        /* Reduce the padding to save vertical space */
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 400px;
+        box-sizing: border-box;
     }
 
     h3 {
         text-align: center;
         color: #333;
+        /* Reduce the bottom margin of the heading */
+        margin-bottom: 10px;
     }
 
     .form-field {
-        margin-bottom: 15px;
+        /* Reduce the margin to shrink the space between fields */
+        margin-bottom: 8px;
     }
 
     .form-field label {
         display: block;
-        margin-bottom: 5px;
+        /* Reduce the space between the label and the input field */
+        margin-bottom: 2px;
         font-weight: bold;
     }
 
     .form-field input[type="text"], .form-field select {
         width: 100%;
-        padding: 8px;
+        /* Reduce the internal padding of the input fields */
+        padding: 5px;
         border: 1px solid #ccc;
         border-radius: 5px;
         box-sizing: border-box;
@@ -56,18 +63,19 @@
     .error-message {
         color: red;
         font-size: 0.9em;
-        margin-top: 5px;
+        margin-top: 3px;
     }
 
     .submit-button {
         width: 100%;
-        padding: 10px;
+        /* Reduce the padding of the button to make it smaller */
+        padding: 8px;
         background-color: #007BFF;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     .submit-button:hover {

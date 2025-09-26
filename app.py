@@ -26,7 +26,9 @@ def predict():
             heartRate = [form.heartRate.data] ))
         predict = model.predict(x_new)
         message = f"Prediction: "
-    return render_template("index.html", title = "Home", form=form)
+    else:
+        message = "Please provide valid input details."
+    return render_template("index.html", title = "Home", form=form, output = message)
 
 
 if __name__ == "__main__":

@@ -18,9 +18,9 @@ def predict():
         x_new = pd.DataFrame(dict(
             male = [is_male],
             age = [form.age.data],
-            currentSmoker = [form.currentSmoker.data],
+            currentSmoker = [int(form.currentSmoker.data)],
             cigsPerDay = [form.cigsPerDay.data],
-            diabetes = [form.diabetes.data],
+            diabetes = [int(form.diabetes.data)],
             totChol = [form.totChol.data],
             sysBP = [form.sysBP.data],
             BMI = [form.BMI.data],

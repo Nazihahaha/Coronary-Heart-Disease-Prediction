@@ -12,11 +12,17 @@
     .container {
         display: flex;
         justify-content: flex-end;
-        align-items: center;
-        padding-top: 0px; 
-        height: 85vh;
+        /* Change align-items to 'center' or 'flex-start' and adjust height/padding-top */
+        align-items: center; 
+        /* Increase padding-top to push content down from the top */
+        padding-top: 100px; /* Changed from 0px to 50px (or any value you prefer) */
+        
+        /* Decrease height if you want it closer to the default flow. 
+        If you use padding-top, you can often remove or reduce the height property. */
+        height: 75vh; /* Reduced from 85vh to 75vh to bring the center point down */
+        
         padding-right: 150px;
-    }
+}
 
     .form-block {
         background-color: rgba(255, 255, 255, 0.9);
@@ -80,6 +86,21 @@
 
     .submit-button:hover {
         background-color: #0056b3;
+    }
+        
+    .prediction-output {
+        text-align: center; /* Center the message */
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-top: 10px; /* Add some spacing above the text */
+    }
+
+    .risk {
+        color: #dc3545; /* A standard red color */
+    }
+
+    .no-risk {
+        color: #28a745; /* A standard green color */
     }
 </style>
 
@@ -183,7 +204,7 @@
                 {{ form.submit(class="submit-button") }}
             </div>
             <br>
-            <div>
+            <div class="prediction-output {% if 'Risk' in output %}risk{% else %}no-risk{% endif %}">
                 {{ output }}
             </div>
         </form>

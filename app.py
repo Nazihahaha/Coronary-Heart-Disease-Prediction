@@ -10,7 +10,7 @@ app.config["SECRET_KEY"] = "secret_key"
 
 # Load the trained model or create a dummy class if loading fails
 try:
-    model = joblib.load("model.joblib")
+    model = joblib.load("xgb_model.joblib")
     scaler = joblib.load('scaler.joblib')
     print("SUCCESS: model.joblib loaded.")
 except FileNotFoundError:
@@ -24,7 +24,6 @@ def predict():
     
     # Default message for GET request or unsuccessful POST
     message = "Please provide valid input details."
-    message_style = ""
 
     # Check for client-side validation errors before attempting model prediction
     if form.validate_on_submit():
@@ -43,7 +42,7 @@ def predict():
                 heartRate = [float(form.heartRate.data)] 
             ))
             X_new_scaled = scaler.transform(x_new)
-            predict_value = model.predict(x_new)[0]
+            predict_value = model.predict(X_new_scaled)[0]
             
             # Translate the prediction (1 is "High Risk" and 0 is "Low Risk")
             if predict_value == 1:

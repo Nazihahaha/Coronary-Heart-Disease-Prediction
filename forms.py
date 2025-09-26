@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import (SelectField, FloatField, IntegerField, SubmitField, BooleanField)
-from wtforms.validators import (DataRequired, Optional)
+from wtforms.validators import (DataRequired, Optional, InputRequired)
 
 class InputeForm(FlaskForm):
 
@@ -13,7 +13,7 @@ class InputeForm(FlaskForm):
     currentSmoker = BooleanField('Are you a current Smoker?') 
     
     cigsPerDay = IntegerField(label='Amount of cigarettes you smoke per day (enter 0 if non-smoker)', 
-                              validators=[DataRequired()])
+                              validators=[InputRequired()])
 
   
     diabetes = BooleanField(label='Do you have diabetes?')

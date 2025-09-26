@@ -132,7 +132,7 @@
 
             <div class="form-field">
                 {{ form.diabetes.label }}
-                {{ form.diabetes(placeholder="e.g., 0 for no, 1 for yes") }}
+                {{ form.diabetes() }}
                 {% if form.diabetes.errors %}
                     {% for error in form.diabetes.errors %}
                         <div class="error-message">{{ error }}</div>

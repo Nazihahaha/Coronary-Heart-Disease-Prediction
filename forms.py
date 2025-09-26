@@ -17,7 +17,7 @@ class InputeForm(FlaskForm):
 
     cigsPerDay = IntegerField(label='Amount of cigarettes you smoke per day')
 
-    diabetes = FloatField(label='How much is your diabetes?')
+    diabetes = FloatField(label='Do you have diabetes?')
 
     totChol = FloatField(label='How much is your total Cholesterol?')
 

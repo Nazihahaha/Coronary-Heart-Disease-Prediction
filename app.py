@@ -15,14 +15,14 @@ def predict():
     form = InputeForm()
     if form.validate_on_submit():
         x_new = pd.DataFrame(dict(
-            male = [form.gender.data]
-            age = [form.age.data]
-            currentSmoker = [form.currentSmoker.data]
-            cigsPerDay = [form.cigsPerDay.data]
-            diabetes = [form.diabetes.data]
-            totChol = [form.totChol.data]
-            sysBP = [form.sysBP.data]
-            BMI = [form.BMI.data]
+            male = [form.gender.data],
+            age = [form.age.data],
+            currentSmoker = [form.currentSmoker.data],
+            cigsPerDay = [form.cigsPerDay.data],
+            diabetes = [form.diabetes.data],
+            totChol = [form.totChol.data],
+            sysBP = [form.sysBP.data],
+            BMI = [form.BMI.data],
             heartRate = [form.heartRate.data] ))
         predict = model.predict(x_new)
         message = f"Prediction: "

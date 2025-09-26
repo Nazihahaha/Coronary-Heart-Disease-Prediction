@@ -13,7 +13,19 @@ model = joblib.load("model.joblib")
 @app.route("/home", methods=["GET", "POST"])
 def predict():
     form = InputeForm()
-    
+    if form.validate_on_submit():
+        x_new = pd.DataFrame(dict(
+            gender = [form.gender.data]
+            age = [form.age.data]
+            currentSmoker = [form.currentSmoker.data]
+            cigsPerDay = [form.cigsPerDay.data]
+            diabetes = [form.diabetes.data]
+            totChol = [form.totChol.data]
+            sysBP = [form.sysBP.data]
+            BMI = [form.BMI.data]
+            heartRate = [form.heartRate.data]
+            
+        ))
     return render_template("index.html", title = "Home", form=form)
 
 

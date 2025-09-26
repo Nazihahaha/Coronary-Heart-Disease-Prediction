@@ -15,7 +15,7 @@ def predict():
     form = InputeForm()
     if form.validate_on_submit():
         x_new = pd.DataFrame(dict(
-            gender = [form.gender.data]
+            male = [form.gender.data]
             age = [form.age.data]
             currentSmoker = [form.currentSmoker.data]
             cigsPerDay = [form.cigsPerDay.data]
@@ -23,9 +23,9 @@ def predict():
             totChol = [form.totChol.data]
             sysBP = [form.sysBP.data]
             BMI = [form.BMI.data]
-            heartRate = [form.heartRate.data]
-            
-        ))
+            heartRate = [form.heartRate.data] ))
+        predict = model.predict(x_new)
+        message = f"Prediction: "
     return render_template("index.html", title = "Home", form=form)
 
 

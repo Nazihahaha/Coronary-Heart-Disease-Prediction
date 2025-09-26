@@ -100,7 +100,7 @@
     }
 
     .no-risk {
-        color: #28a745; /* A standard green color */
+        color: green; /* A standard green color */
     }
 </style>
 
@@ -204,7 +204,7 @@
                 {{ form.submit(class="submit-button") }}
             </div>
             <br>
-            <div class="prediction-output {% if 'Risk' in output %}risk{% else %}no-risk{% endif %}">
+            <div class="prediction-output {% if 'High Risk' in output %}risk{% elif 'Low Risk' in output %}no-risk{% else %}no-risk{% endif %}">
                 {{ output }}
             </div>
         </form>

@@ -9,22 +9,22 @@ X_data = pd.read_csv("framingham.csv")
 
 
 class InputeForm(FlaskForm):
-    gender = SelectField(label="Gender", choices=["Male", "Female", "Other"], validators=[Optional()])
+    gender = SelectField(label="Gender", choices=["Male", "Female", "Other"], validators = [DataRequired()])
 
-    age = IntegerField(label='Age')
+    age = IntegerField(label='Age', validators = [DataRequired()])
 
     currentSmoker = BooleanField('Are you a current Smoker?', validators=[validators.InputRequired()])
 
-    cigsPerDay = IntegerField(label='Amount of cigarettes you smoke per day')
+    cigsPerDay = IntegerField(label='Amount of cigarettes you smoke per day', validators = [DataRequired()])
 
     diabetes = BooleanField(label='Do you have diabetes?', validators=[validators.InputRequired()])
 
-    totChol = FloatField(label='How much is your total Cholesterol?')
+    totChol = FloatField(label='How much is your total Cholesterol?', validators = [DataRequired()])
 
-    sysBP = FloatField(label='How much is your systolic Blood Pressure (Upper value)?')
+    sysBP = FloatField(label='How much is your systolic Blood Pressure (Upper value)?', validators = [DataRequired()])
 
-    BMI = FloatField(label='What is your Body Mass Index (BMI)?')
+    BMI = FloatField(label='What is your Body Mass Index (BMI)?', validators = [DataRequired()])
 
-    heartRate = FloatField(label='What is your heart rate?')
+    heartRate = FloatField(label='What is your heart rate?', validators = [DataRequired()])
     
     submit = SubmitField("Predict")

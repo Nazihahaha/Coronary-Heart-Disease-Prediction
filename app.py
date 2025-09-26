@@ -14,8 +14,9 @@ model = joblib.load("model.joblib")
 def predict():
     form = InputeForm()
     if form.validate_on_submit():
+        is_male = 1 if form.gender.data == "Male" else 0
         x_new = pd.DataFrame(dict(
-            male = [form.gender.data],
+            male = [is_male],
             age = [form.age.data],
             currentSmoker = [form.currentSmoker.data],
             cigsPerDay = [form.cigsPerDay.data],
@@ -24,8 +25,8 @@ def predict():
             sysBP = [form.sysBP.data],
             BMI = [form.BMI.data],
             heartRate = [form.heartRate.data] ))
-        predict = model.predict(x_new)
-        message = f"Prediction: "
+        predict = model.predict(x_new)[0]
+        message = f"Prediction: {predict}"
     else:
         message = "Please provide valid input details."
     return render_template("index.html", title = "Home", form=form, output = message)

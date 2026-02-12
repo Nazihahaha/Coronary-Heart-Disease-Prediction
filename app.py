@@ -30,6 +30,11 @@ def predict():
             # Data conversion based on model expectation (male=1, female=0)
             is_male = 1 if form.gender.data == "Male" else 0
         
+            # Calculate BMI from weight and height
+            weight = float(form.weight.data)
+            height = float(form.height.data)
+            bmi = weight / (height ** 2)
+        
             x_new = pd.DataFrame(dict(
                 male = [is_male],
                 age = [int(form.age.data)], # Age should be an integer
@@ -38,7 +43,7 @@ def predict():
                 diabetes = [int(form.diabetes.data)],
                 totChol = [float(form.totChol.data)],
                 sysBP = [float(form.sysBP.data)],
-                BMI = [float(form.BMI.data)],
+                BMI = [bmi],
                 heartRate = [float(form.heartRate.data)] 
             ))
             X_new_scaled = scaler.transform(x_new)

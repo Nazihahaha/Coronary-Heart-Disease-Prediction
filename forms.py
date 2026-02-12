@@ -22,7 +22,9 @@ class InputeForm(FlaskForm):
 
     sysBP = FloatField(label='Systolic Blood Pressure (mmHg)', validators=[DataRequired()])
 
-    BMI = FloatField(label='Body Mass Index (BMI)', validators=[DataRequired()])
+    weight = FloatField(label='Weight (kg)', validators=[DataRequired()])
+
+    height = FloatField(label='Height (m)', validators=[DataRequired()])
 
     heartRate = FloatField(label='Heart Rate (beats/min)', validators=[DataRequired()])
     

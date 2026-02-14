@@ -24,6 +24,7 @@ def predict():
     
     # Default message for GET request or unsuccessful POST
     message = "Please provide valid input details."
+    calculated_bmi = None
 
     # Check for client-side validation errors before attempting model prediction
     if form.validate_on_submit():
@@ -34,6 +35,7 @@ def predict():
             weight = float(form.weight.data)
             height = float(form.height.data)
             bmi = weight / (height ** 2)
+            calculated_bmi = round(bmi, 2)
         
             x_new = pd.DataFrame(dict(
                 male = [is_male],
@@ -57,7 +59,7 @@ def predict():
                 
             message = f"Prediction Result: {prediction_text}"
     
-    return render_template("index.html", title="Home", form=form, output=message)
+    return render_template("index.html", title="Home", form=form, output=message, bmi=calculated_bmi)
 
 
 if __name__ == "__main__":

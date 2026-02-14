@@ -28,9 +28,12 @@ A machine learning-based web application that predicts the risk of Coronary Hear
 2. Run `pip install -r requirements.txt` to install dependecies.
 3. Run the application using `python app.py`.
 4. Open the local link given on the console in your web browser.
+5. 
+See the project live at: https://coronary-heart-disease-prediction-3.onrender.com/
 
 ## 🎥 Preview
 
-https://github.com/user-attachments/assets/e2b6cc1d-7573-4380-a9c4-ef38b2651bcc
+https://github.com/user-attachments/assets/73b58e07-44fb-4533-b85b-7e2713ee4c99
 
-See the project live at: https://coronary-heart-disease-prediction-3.onrender.com/
+
+

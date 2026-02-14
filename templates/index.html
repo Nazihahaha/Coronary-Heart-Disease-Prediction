@@ -184,10 +184,20 @@
             </div>
 
             <div class="form-field">
-                {{ form.BMI.label }}
-                {{ form.BMI(placeholder="e.g., 25.0") }}
-                {% if form.BMI.errors %}
-                    {% for error in form.BMI.errors %}
+                {{ form.weight.label }}
+                {{ form.weight(placeholder="e.g., 75.5") }}
+                {% if form.weight.errors %}
+                    {% for error in form.weight.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                {{ form.height.label }}
+                {{ form.height(placeholder="e.g., 1.75") }}
+                {% if form.height.errors %}
+                    {% for error in form.height.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}
                 {% endif %}

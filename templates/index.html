@@ -13,56 +13,54 @@
     .container {
         display: flex;
         justify-content: flex-end;
-        /* Change align-items to 'center' or 'flex-start' and adjust height/padding-top */
-        align-items: center; 
-        /* Increase padding-top to push content down from the top */
-        padding-top: 100px; /* Changed from 0px to 50px (or any value you prefer) */
-        
-        /* Decrease height if you want it closer to the default flow. 
-        If you use padding-top, you can often remove or reduce the height property. */
-        height: 75vh; /* Reduced from 85vh to 75vh to bring the center point down */
-        
-        padding-right: 150px;
-        
-}
+        align-items: flex-start;
+        padding-top: 80px;
+        min-height: 100vh;
+        padding-right: 80px;
+        padding-bottom: 20px;
+    }
 
     .form-block {
         background-color: rgb(173, 208, 219);
         border-radius: 15px;
-        /* Reduce the padding to save vertical space */
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 400px;
+        width: 700px;
         box-sizing: border-box;
-        height: min-content;
     }
 
-    h3 {
+    h2 {
+        font-size: 1.1em;
         text-align: center;
         color: #333;
-        /* Reduce the bottom margin of the heading */
-        margin-bottom: 10px;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .form-fields-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
     .form-field {
-        /* Reduce the margin to shrink the space between fields */
-        margin-bottom: 8px;
+        margin-bottom: 0;
     }
 
     .form-field label {
         display: block;
-        /* Reduce the space between the label and the input field */
-        margin-bottom: 2px;
+        margin-bottom: 3px;
         font-weight: bold;
+        font-size: 0.9em;
     }
 
-    .form-field input[type="text"], .form-field select {
+    .form-field input[type="text"], .form-field input[type="number"], .form-field select {
         width: 100%;
-        /* Reduce the internal padding of the input fields */
         padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        border: 1px solid #999;
+        border-radius: 4px;
         box-sizing: border-box;
+        font-size: 0.9em;
     }
     
     .form-field input[type="checkbox"] {
@@ -77,7 +75,6 @@
 
     .submit-button {
         width: 100%;
-        /* Reduce the padding of the button to make it smaller */
         padding: 8px;
         background-color: #007BFF;
         color: white;
@@ -85,6 +82,8 @@
         border-radius: 5px;
         cursor: pointer;
         font-size: 1em;
+        margin-top: 15px;
+        margin-bottom: 8px;
     }
 
     .submit-button:hover {
@@ -92,10 +91,13 @@
     }
         
     .prediction-output {
-        text-align: center; /* Center the message */
-        font-size: 1.1em;
+        text-align: center;
+        font-size: 0.95em;
         font-weight: bold;
-        margin-top: 10px; /* Add some spacing above the text */
+        margin-top: 8px;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.3);
     }
 
     .risk {
@@ -113,110 +115,116 @@
         <form action="" method="post">
             {{ form.hidden_tag() }}
             
-            <div class="form-field">
-                {{ form.gender.label }}
-                {{ form.gender }}
-                {% if form.gender.errors %}
-                    {% for error in form.gender.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+            <div class="form-fields-grid">
+                <div class="form-field">
+                    {{ form.gender.label }}
+                    {{ form.gender }}
+                    {% if form.gender.errors %}
+                        {% for error in form.gender.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.age.label }}
-                {{ form.age(placeholder="Enter age") }}
-                {% if form.age.errors %}
-                    {% for error in form.age.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.age.label }}
+                    {{ form.age(placeholder="Enter age") }}
+                    {% if form.age.errors %}
+                        {% for error in form.age.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.currentSmoker.label }}
-                {{ form.currentSmoker() }}
-                {% if form.currentSmoker.errors %}
-                    {% for error in form.currentSmoker.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.currentSmoker.label }}
+                    {{ form.currentSmoker() }}
+                    {% if form.currentSmoker.errors %}
+                        {% for error in form.currentSmoker.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.cigsPerDay.label }}
-                {{ form.cigsPerDay(placeholder="e.g., 5") }}
-                {% if form.cigsPerDay.errors %}
-                    {% for error in form.cigsPerDay.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.cigsPerDay.label }}
+                    {{ form.cigsPerDay(placeholder="e.g., 5") }}
+                    {% if form.cigsPerDay.errors %}
+                        {% for error in form.cigsPerDay.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.diabetes.label }}
-                {{ form.diabetes() }}
-                {% if form.diabetes.errors %}
-                    {% for error in form.diabetes.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.diabetes.label }}
+                    {{ form.diabetes() }}
+                    {% if form.diabetes.errors %}
+                        {% for error in form.diabetes.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.totChol.label }}
-                {{ form.totChol(placeholder="e.g., 200") }}
-                {% if form.totChol.errors %}
-                    {% for error in form.totChol.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.totChol.label }}
+                    {{ form.totChol(placeholder="e.g., 200") }}
+                    {% if form.totChol.errors %}
+                        {% for error in form.totChol.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.sysBP.label }}
-                {{ form.sysBP(placeholder="e.g., 120") }}
-                {% if form.sysBP.errors %}
-                    {% for error in form.sysBP.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.sysBP.label }}
+                    {{ form.sysBP(placeholder="e.g., 120") }}
+                    {% if form.sysBP.errors %}
+                        {% for error in form.sysBP.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.weight.label }}
-                {{ form.weight(placeholder="e.g., 75.5") }}
-                {% if form.weight.errors %}
-                    {% for error in form.weight.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.weight.label }}
+                    {{ form.weight(placeholder="e.g., 75.5") }}
+                    {% if form.weight.errors %}
+                        {% for error in form.weight.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.height.label }}
-                {{ form.height(placeholder="e.g., 1.75") }}
-                {% if form.height.errors %}
-                    {% for error in form.height.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                <div class="form-field">
+                    {{ form.height.label }}
+                    {{ form.height(placeholder="e.g., 1.75") }}
+                    {% if form.height.errors %}
+                        {% for error in form.height.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-            <div class="form-field">
-                {{ form.heartRate.label }}
-                {{ form.heartRate(placeholder="e.g., 75") }}
-                {% if form.heartRate.errors %}
-                    {% for error in form.heartRate.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}
-                {% endif %}
+                <div class="form-field">
+                    {{ form.heartRate.label }}
+                    {{ form.heartRate(placeholder="e.g., 75") }}
+                    {% if form.heartRate.errors %}
+                        {% for error in form.heartRate.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
             
             <div class="form-field">
                 {{ form.submit(class="submit-button") }}
             </div>
-            <br>
+            {% if bmi is not none %}
+            <div class="prediction-output">
+                <strong>Calculated BMI: {{ bmi }}</strong>
+            </div>
+            {% endif %}
             <div class="prediction-output {% if 'High Risk' in output %}risk{% elif 'Low Risk' in output %}no-risk{% else %}no-risk{% endif %}">
                 {{ output }}
             </div>

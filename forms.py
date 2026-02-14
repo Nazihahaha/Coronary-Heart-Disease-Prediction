@@ -20,7 +20,7 @@ class InputeForm(FlaskForm):
 
     totChol = FloatField(label='Total Cholesterol (mg/dL)', validators=[DataRequired()])
 
-    sysBP = FloatField(label='Systolic Blood Pressure (mmHg)', validators=[DataRequired()])
+    sysBP = FloatField(label='Systolic Blood Pressure (Top value) (mmHg)', validators=[DataRequired()])
 
     weight = FloatField(label='Weight (kg)', validators=[DataRequired()])
 
